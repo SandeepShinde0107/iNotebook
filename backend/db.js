@@ -1,6 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/inotebook';
 
+// Use a properly encoded MongoDB connection string
+const mongoURI = process.env.MONGO_URL;
 const connectToMongo = async () => {
     try {
         await mongoose.connect(mongoURI); // No options needed in newer versions
